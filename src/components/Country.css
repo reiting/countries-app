@@ -1,0 +1,22 @@
+.country {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    max-width: 100%;
+    text-align: center;
+    font-size: 25px;
+}
+
+.country-flag {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: solid;
+} 
+
+.country-details {
+    font-size:36px;
+    color: blue;
+}
+
+

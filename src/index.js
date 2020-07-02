@@ -1,15 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Router } from '@reach/router'
 
+import App from './App';
+import Country from './components/Country';
+import Weather from './components/Weather';
+import Details from './components/Details';
+
+const rootElement = document.getElementById('root')
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+
+  <Router>
+    <App path='/' />
+    <Country path='/country/:alpha3Code' />
+    <Weather path='/weather' />
+    <Details path='/details' />
+  </Router>,
+    rootElement
+)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

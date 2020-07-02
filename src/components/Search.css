@@ -1,0 +1,17 @@
+.searchbox{
+    justify-content: center;
+    align-content: center;
+    font-size:36px;
+    text-align: center;
+}
+
+.searchinput {
+    padding:10px 15px 10px 50px;
+    font-size:36px;
+    color:#1f5350;
+}
+
+.instructions {
+    font-size: 30px;
+    color: #38618C;
+}

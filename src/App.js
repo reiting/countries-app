@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './App.css';
+import Search from './components/Search';
+import Countries from './components/Countries';
 
-function App() {
+const App = () => {
+  const [countries, setCountries] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
+
+    //get data from api
+useEffect(() => {
+  async function fetchData() {
+    const response = await axios.get('https://restcountries.eu/rest/v2/all');
+    setCountries(response.data);
+    console.log(response.data);
+  }
+  fetchData();
+}, []); 
+
+  //gets the list of all the countries and filters through them based on the searchTerm
+  const listOfCountries = countries.filter(country => 
+    country.name.toLowerCase().includes(searchTerm.toLowerCase()))
+
+  const handleSearchChange = event => {
+    setSearchTerm(event.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <form>
+      <Search searchTerm={searchTerm} handleSearchChange={handleSearchChange} />
+      <Countries countries={listOfCountries} setSearchTerm={setSearchTerm} />
+    </form>
+  )
 }
 
 export default App;

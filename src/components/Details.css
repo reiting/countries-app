@@ -1,0 +1,16 @@
+.details {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    max-width: 100%;
+    text-align: center;
+    font-size: 30px;
+}
+
+.heading {
+    color: #38618C;
+}
+
+.details-list {
+    list-style: none;
+}
